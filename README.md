@@ -6,6 +6,12 @@ This project combines a clean glassmorphism UI with smooth animations, scientifi
 
 ---
 
+## 🌐 Live Demo
+
+🔗 :contentReference[oaicite:0]{index=0}
+
+---
+
 ## ✨ Features
 
 ### 🧮 Core Calculator Features
