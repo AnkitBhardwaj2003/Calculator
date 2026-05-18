@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+/* Floating Animation */
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Glow Animation */
+
+@keyframes glow {
+
+  0% {
+    box-shadow: 0 0 10px #00f7ff;
+  }
+
+  50% {
+    box-shadow: 0 0 25px #00f7ff;
+  }
+
+  100% {
+    box-shadow: 0 0 10px #00f7ff;
+  }
+}
+
+/* Calculator */
+
+.container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.calculator {
+
+  width: 360px;
+
+  padding: 25px;
+
+  border-radius: 25px;
+
+  backdrop-filter: blur(15px);
+
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  animation: float 4s ease-in-out infinite;
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+/* Display */
+
+#display {
+
+  width: 100%;
+
+  height: 80px;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: 20px;
+
+  margin-bottom: 20px;
+
+  padding: 15px;
+
+  font-size: 32px;
+
+  text-align: right;
+
+  color: white;
+
+  background: rgba(255,255,255,0.1);
+
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* Buttons */
+
+.buttons {
+
+  display: grid;
+
+  grid-template-columns: repeat(4,1fr);
+
+  gap: 12px;
+}
+
+button {
+
+  height: 65px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.25s;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* Shine Effect */
+
+button::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -100%;
+
+  left: -100%;
+
+  width: 200%;
+
+  height: 200%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
+
+  transform: rotate(25deg);
+
+  transition: 0.5s;
+}
+
+button:hover::before {
+
+  top: 100%;
+
+  left: 100%;
+}
+
+/* Hover Animation */
+
+button:hover {
+
+  transform: translateY(-5px) scale(1.05);
+
+  background: rgba(255,255,255,0.18);
+
+  animation: glow 1s infinite;
+}
+
+/* Click Animation */
+
+button:active {
+
+  transform: scale(0.92);
+}
+
+/* Equal Button */
+
+.equal {
+
+  grid-column: span 2;
+
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+}
+
+/* History Panel */
+
+.history-panel {
+
+  width: 260px;
+
+  max-height: 600px;
+
+  overflow-y: auto;
+
+  padding: 20px;
+
+  border-radius: 25px;
+
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(15px);
+
+  color: white;
+
+  animation: float 5s ease-in-out infinite;
+}
+
+.history-panel h2 {
+
+  margin-bottom: 15px;
+
+  text-align: center;
+}
+
+.history-panel ul {
+
+  list-style: none;
+}
+
+.history-panel li {
+
+  margin-bottom: 12px;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.08);
+
+  animation: fadeIn 0.4s ease;
+}
+
+/* Fade Animation */
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateX(20px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+/* Clear History */
+
+.clear-history {
+
+  width: 100%;
+
+  margin-bottom: 15px;
+
+  background: linear-gradient(135deg, crimson, red);
+}
+
+/* Theme Button */
+
+.top-bar {
+
+  position: absolute;
+
+  top: 20px;
+
+  right: 20px;
+}
+
+#themeBtn {
+
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 50%;
+
+  font-size: 24px;
+
+  background: rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  animation: glow 2s infinite;
+}
+
+/* Light Mode */
+
+.light-mode {
+
+  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+}
+
+.light-mode .calculator,
+.light-mode .history-panel {
+
+  background: rgba(255,255,255,0.5);
+
+  color: black;
+}
+
+.light-mode #display {
+
+  color: black;
+
+  background: rgba(255,255,255,0.7);
+}
+
+.light-mode button {
+
+  color: black;
+
+  background: rgba(255,255,255,0.5);
+}
