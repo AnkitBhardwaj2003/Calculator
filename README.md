@@ -8,7 +8,7 @@ This project combines a clean glassmorphism UI with smooth animations, scientifi
 
 ## 🌐 Live Demo
 
-🔗 :contentReference[oaicite:0]{index=0}
+🔗 :https://ankitbhardwaj2003.github.io/Calculator/
 
 ---
 
